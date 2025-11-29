@@ -193,12 +193,9 @@ def get_ssm_parameter_as_json(
 if __name__ == "__main__":
     # Example 1: Get a single parameter
     api_key = get_ssm_parameter("/myapp/api-key")
-    print(f"API Key: {api_key}")
     
     # Example 2: Get multiple parameters by path
     config_params = get_ssm_parameters_by_path("/myapp/config/")
-    print(f"Config parameters: {config_params}")
     
     # Example 3: Get a JSON parameter
     db_config = get_ssm_parameter_as_json("/myapp/database-config")
-    print(f"Database config: {db_config}")
