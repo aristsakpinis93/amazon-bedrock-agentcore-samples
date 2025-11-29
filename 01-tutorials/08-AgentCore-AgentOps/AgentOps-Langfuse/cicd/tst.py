@@ -11,7 +11,6 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 from utils.langfuse import get_langfuse_client
 from utils.agent import invoke_agent
 from utils.aws import get_ssm_parameter
-import logging
 
 # Add this at the top of your script
 #logging.basicConfig(level=logging.DEBUG)
