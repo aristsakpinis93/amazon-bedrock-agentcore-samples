@@ -1,7 +1,7 @@
-import langfuse
 import sys
 import os
 import json
+import langfuse
 
 from langfuse.experiment import create_evaluator_from_autoevals
 from autoevals.llm import Factuality
@@ -51,7 +51,7 @@ print(f"Agent Name: {config.get('agent_name', 'N/A')}")
 print(f"Agent ID: {config.get('agent_id', 'N/A')}")
 
     # Initialize Langfuse client
-langfuse = get_langfuse_client() 
+langfuse_client = get_langfuse_client() 
 
 # Define Bedrock model as LLMaaJ model
 # Set environment variables to point to Bedrock
@@ -61,7 +61,7 @@ os.environ["OPENAI_BASE_URL"] = get_ssm_parameter("/autoevals/OPENAI_BASE_URL")
 
 # Get the dataset
 dataset_name="strands-ai-mcp-agent-evaluation"
-dataset = langfuse.get_dataset(dataset_name)
+dataset = langfuse_client.get_dataset(dataset_name)
 
 # Print first 3 items of the original dataset
 print(f"\n{'='*80}\nFirst 3 ORIGINAL items from dataset '{dataset_name}':\n{'='*80}")
@@ -134,7 +134,7 @@ evaluator = create_evaluator_from_autoevals(Factuality(
     model="qwen.qwen3-235b-a22b-2507-v1:0")
     )
  
-result = langfuse.run_experiment(
+result = langfuse_client.run_experiment(
     name="Autoevals Integration Test",
     data=expanded_items,
     task=agent_task,
@@ -173,8 +173,8 @@ with open('factuality_results.json', 'w') as f:
     json.dump(results, f, indent=2)
 
 print(f"\n{'='*80}")
-print(f"Factuality Results Summary:")
+print("Factuality Results Summary:")
 print(f"  Average Score: {avg_score:.3f} ({avg_score*100:.1f}%)")
 print(f"  Total Items: {len(factuality_scores)}")
-print(f"  Results saved to: factuality_results.json")
+print("  Results saved to: factuality_results.json")
 print(f"{'='*80}\n")

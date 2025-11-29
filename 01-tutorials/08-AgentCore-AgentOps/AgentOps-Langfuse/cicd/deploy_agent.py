@@ -51,7 +51,7 @@ def main():
     model = config["model"]
     system_prompt = config["system_prompt"]
     
-    print(f"Deploying agent with:")
+    print("Deploying agent with:")
     print(f"  Model: {model['name']} ({model['model_id']})")
     print(f"  System Prompt: {system_prompt['name']}")
     print(f"  Environment: {environment}")
@@ -65,7 +65,7 @@ def main():
             environment=environment
         )
         
-        print(f"Agent deployment successful!")
+        print("Agent deployment successful!")
         print(f"Agent Name: {result['agent_name']}")
         print(f"Agent ARN: {result['launch_result'].agent_arn}")
         print(f"Agent ID: {result['launch_result'].agent_id}")
@@ -76,9 +76,9 @@ def main():
         if environment.lower() not in config:
             config[environment.lower()] = {}
         
-        config[environment.lower()][f'agent_arn'] = result['launch_result'].agent_arn
-        config[environment.lower()][f'agent_name'] = result['agent_name']
-        config[environment.lower()][f'agent_id'] = result['launch_result'].agent_id
+        config[environment.lower()]['agent_arn'] = result['launch_result'].agent_arn
+        config[environment.lower()]['agent_name'] = result['agent_name']
+        config[environment.lower()]['agent_id'] = result['launch_result'].agent_id
         
         with open("cicd/hp_config.json", 'w') as f:
             json.dump(config, f, indent=2)

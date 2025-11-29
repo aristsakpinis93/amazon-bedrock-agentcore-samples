@@ -112,7 +112,7 @@ def main():
         print("No agent found to delete. Exiting.")
         return
     
-    print(f"Deleting agent:")
+    print("Deleting agent:")
     print(f"  Agent Name: {agent_info['agent_name']}")
     print(f"  Agent Runtime ID: {agent_info['agent_runtime_id']}")
     print(f"  ECR URI: {agent_info['ecr_uri']}")
@@ -125,7 +125,7 @@ def main():
         )
         
         if result['status'] == 'success':
-            print(f"Agent deletion successful!")
+            print("Agent deletion successful!")
             print(f"Runtime deletion response: {result.get('runtime_delete_response', {})}")
             print(f"ECR deletion response: {result.get('ecr_delete_response', {})}")
         else:
