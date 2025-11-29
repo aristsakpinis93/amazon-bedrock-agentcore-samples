@@ -6,7 +6,6 @@ This script deletes the deployed agent using the delete_agent function from util
 
 import json
 import sys
-import os
 from pathlib import Path
 
 # Add the parent directory to the Python path to import utils

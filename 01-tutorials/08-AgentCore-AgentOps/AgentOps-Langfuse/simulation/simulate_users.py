@@ -72,7 +72,7 @@ def simulate_user_interactions(agent_arn, prompts):
         else:
             response = result.get('response', '')
         
-        print(f"\n✅ Response received:")
+        print("\n✅ Response received:")
         print(f"{response}\n")
         
         results.append({

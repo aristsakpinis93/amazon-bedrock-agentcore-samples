@@ -4,7 +4,7 @@ Utility functions for AWS services and other common operations.
 
 import boto3
 import json
-from typing import Optional, Union, Dict, Any
+from typing import Optional, Dict, Any
 from botocore.exceptions import ClientError, NoCredentialsError
 
 

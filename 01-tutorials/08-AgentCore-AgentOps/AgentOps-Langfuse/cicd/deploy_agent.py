@@ -7,7 +7,6 @@ using the deploy_agent function from utils.agent with specified environment (TST
 
 import json
 import sys
-import os
 import argparse
 from pathlib import Path
 

@@ -1,9 +1,6 @@
-import base64
-import argparse
-import json
 from bedrock_agentcore.runtime import BedrockAgentCoreApp
 import os
-from strands import Agent, tool
+from strands import Agent
 from strands.models import BedrockModel
 from strands.telemetry import StrandsTelemetry
 

@@ -8,8 +8,7 @@ and provides a reusable function to validate factuality results.
 
 import sys
 import json
-import os
-from typing import Dict, Any, Optional
+from typing import Dict, Any
 
 
 def load_factuality_results(results_file: str = 'factuality_results.json') -> Dict[str, Any]:

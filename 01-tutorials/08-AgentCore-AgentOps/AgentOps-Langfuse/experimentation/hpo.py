@@ -6,7 +6,7 @@ import time
 
 # Add parent directory to path to import from top-level utils
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
-from utils.agent import deploy_agent, invoke_agent, delete_agent
+from utils.agent import deploy_agent, delete_agent
 from utils.langfuse import run_experiment
 
 
